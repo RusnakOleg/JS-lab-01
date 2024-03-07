@@ -10,9 +10,11 @@
 Сторінка привітання <br>
 "Hello WORLD"<br>
 <button value="Кнопка вітання">Привітати СВІТ</button>
+<button id="restoreButton">Відновити початковий вигляд</button>
 <script>
      // Створення обробника події «кліку»
     document.querySelector('button').onclick = myFunction;
+    document.getElementById('restoreButton').onclick = restoreInitialState;
     function myFunction() {
       // Директива повної відповідності сучасним стандартам ECMAScript
         "use strict";
@@ -34,6 +36,16 @@
         document.getElementsByTagName("h1")[0].style.color = "red";
         document.getElementById("big").style.fontSize = "4em";
         document.getElementById("big").style.textAlign = "center";
+    }
+
+    function restoreInitialState() {
+        // Відновлення початкового вигляду
+        var h1Element = document.getElementById('big');
+        if (h1Element) {
+            h1Element.parentNode.removeChild(h1Element);
+        }
+        // Показ кнопки привітання
+        document.querySelector('button').style.display = "block";
     }
 </script>
 </body>
